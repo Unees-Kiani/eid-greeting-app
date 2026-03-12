@@ -1,0 +1,41 @@
+# eid_greeting_full.py
+import streamlit as st
+import time
+
+# Page setup
+st.set_page_config(
+    page_title="Eid Mubarak 🌙✨",
+    page_icon="🌙",
+    layout="centered"
+)
+
+# Background and title
+st.markdown("""
+    <div style="text-align: center;">
+        <h1 style="color: darkgreen;">🌙✨ EID MUBARAK! ✨🌙</h1>
+        <h3 style="color: darkblue;">From UNEES UR REHMAN KIANI 💖</h3>
+    </div>
+""", unsafe_allow_html=True)
+
+# Animated Eid message
+message = "May your Eid be filled with joy, blessings, and endless happiness! 🎉🌙"
+animated_text = st.empty()
+
+for i in range(len(message)+1):
+    animated_text.markdown(f"<h4 style='text-align: center; color: darkorange;'>{message[:i]}</h4>", unsafe_allow_html=True)
+    time.sleep(0.05)
+
+# Decorative stars & crescent
+st.markdown("""
+<div style='text-align:center; font-size:40px; color:gold;'>
+    🌟 🌙 ✨ 🌙 🌟
+</div>
+""", unsafe_allow_html=True)
+
+# Surprise Confetti Button
+if st.button("Click for Eid Surprise 🎊"):
+    st.balloons()
+    st.success("Eid Mubarak! 🎉💖 May Allah bless you and your family with happiness and health! 🌙✨")
+
+# Footer
+st.markdown("<p style='text-align:center; color:purple;'>Share this link with your friends & family! 💖</p>", unsafe_allow_html=True)
