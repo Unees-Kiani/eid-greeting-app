@@ -1,86 +1,156 @@
-# eid_greeting_full.py
 import streamlit as st
 import time
 
-# Page setup
+# ===== PAGE SETUP =====
 st.set_page_config(
-    page_title="Eid Mubarak 🌙✨",
+    page_title="Eid Mubarak 🌙",
     page_icon="🌙",
-    layout="wide"
+    layout="centered"
 )
 
-# ======= HEADER =======
+# ===== BACKGROUND + ANIMATIONS =====
 st.markdown("""
-<div style="text-align:center;">
-    <h1 style="color: darkgreen; font-size:60px;">🌙✨ EID MUBARAK! ✨🌙</h1>
-    <h2 style="color: darkblue;">From UNEES UR REHMAN KIANI 💖</h2>
-</div>
-""", unsafe_allow_html=True)
-
-# ======= ANIMATED GREETING =======
-message = "May your Eid be filled with joy, blessings, peace, and endless happiness! 🎉🌙"
-animated_text = st.empty()
-
-for i in range(len(message)+1):
-    animated_text.markdown(f"<h3 style='text-align:center; color:darkorange;'>{message[:i]}</h3>", unsafe_allow_html=True)
-    time.sleep(0.03)
-
-# ======= MOVING MOON =======
-st.markdown("""
-<div style="text-align:center; font-size:80px; color:gold; animation: moveMoon 3s infinite alternate;">
-    🌙
-</div>
-
 <style>
-@keyframes moveMoon {
-    0% { transform: translateY(0px);}
-    100% { transform: translateY(-20px);}
+
+.stApp {
+background-image: url("https://images.unsplash.com/photo-1608889175119-3c8e3f9c6a4a");
+background-size: cover;
+background-position: center;
 }
+
+/* Moving Moon */
+.moon {
+position: absolute;
+top: 80px;
+left: -100px;
+font-size: 60px;
+animation: moonmove 15s linear infinite;
+}
+
+@keyframes moonmove {
+0% {left:-100px;}
+100% {left:100%;}
+}
+
+/* Twinkling stars */
+.star {
+color: gold;
+font-size: 22px;
+animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+from {opacity:0.3;}
+to {opacity:1;}
+}
+
+/* Eid card style */
+.card {
+background: rgba(0,0,0,0.6);
+padding: 25px;
+border-radius: 15px;
+text-align: center;
+color: white;
+font-size: 22px;
+margin-top: 20px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
-# ======= DECORATIVE STARS =======
+st.markdown('<div class="moon">🌙</div>', unsafe_allow_html=True)
+
+# ===== TITLE =====
 st.markdown("""
-<div style='text-align:center; font-size:40px; color:gold;'>
-    🌟 ✨ 🌙 ✨ 🌟
+<div style="text-align:center;">
+<h1 style="color:gold; font-size:60px;">🌙✨ EID MUBARAK ✨🌙</h1>
+<h3 style="color:white;">From UNEES UR REHMAN KIANI</h3>
 </div>
 """, unsafe_allow_html=True)
 
-# ======= SCROLLING EID WISHES =======
+st.write("")
+
+# ===== STAR DECORATION =====
 st.markdown("""
-<marquee behavior="scroll" direction="left" style="color:violet; font-size:28px;">
-    Eid Mubarak! May Allah bless you with happiness, health, and endless joy! 🎉💖🌙✨
-</marquee>
+<div style="text-align:center;">
+<span class="star">⭐</span>
+<span class="star">✨</span>
+<span class="star">⭐</span>
+<span class="star">✨</span>
+<span class="star">⭐</span>
+</div>
 """, unsafe_allow_html=True)
 
-# ======= SURPRISE BUTTON WITH FIREWORKS =======
-if st.button("Click for Eid Surprise 🎊"):
+# ===== COUNTDOWN =====
+st.markdown(
+"<h3 style='text-align:center; color:white;'>Your Eid Greeting is Loading...</h3>",
+unsafe_allow_html=True
+)
+
+counter = st.empty()
+
+for i in range(5,0,-1):
+    counter.markdown(f"<h2 style='text-align:center; color:yellow;'>{i}</h2>", unsafe_allow_html=True)
+    time.sleep(1)
+
+counter.empty()
+
+# ===== STEP-BY-STEP GREETING =====
+messages = [
+"🌙 Assalamu Alaikum!",
+"✨ Eid Mubarak to you and your family.",
+"🕌 May Allah accept your prayers.",
+"💖 May your life be filled with happiness.",
+"🌟 May your home be full of blessings.",
+"🎉 Enjoy this beautiful day with your loved ones!"
+]
+
+for msg in messages:
+    st.markdown(f"<h3 style='text-align:center; color:white;'>{msg}</h3>", unsafe_allow_html=True)
+    time.sleep(1.5)
+
+# ===== MOSQUE DECORATION =====
+st.markdown("""
+<div style="text-align:center; font-size:60px;">
+🕌
+</div>
+""", unsafe_allow_html=True)
+
+# ===== NASHEED PLAYER =====
+st.markdown("<h4 style='text-align:center; color:white;'>Play Eid Nasheed 🎵</h4>", unsafe_allow_html=True)
+
+audio_url = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_8c7c4e5d8c.mp3"
+st.audio(audio_url)
+
+# ===== EID GIFT BUTTON =====
+st.write("")
+st.markdown("<h3 style='text-align:center; color:gold;'>🎁 Open Your Eid Gift</h3>", unsafe_allow_html=True)
+
+if st.button("Open Gift 🎁"):
     st.balloons()
-    st.success("🎆 Eid Mubarak! May this Eid bring peace and prosperity to you and your family! 🌙✨")
+    
     st.markdown("""
-    <div style="text-align:center; font-size:60px; color:gold; animation: fireworks 2s infinite;">
-        🎇 🎆 🎇 🎆 🎇
+    <div class="card">
+    🌙✨ <b>Eid Mubarak!</b> ✨🌙 <br><br>
+    May Allah fill your life with happiness, peace and success. <br>
+    May your home always be full of blessings and smiles. <br><br>
+    💖 Best Wishes From <br>
+    <b>UNEES UR REHMAN KIANI</b>
     </div>
-    <style>
-    @keyframes fireworks {
-        0% {transform: scale(1);}
-        50% {transform: scale(1.5);}
-        100% {transform: scale(1);}
-    }
-    </style>
     """, unsafe_allow_html=True)
 
-# ======= OPTIONAL BACKGROUND MUSIC =======
+# ===== ISLAMIC DECORATION =====
 st.markdown("""
-<audio autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<div style='text-align:center; font-size:45px;'>
+🌙 ⭐ 🕌 ⭐ 🌙
+</div>
 """, unsafe_allow_html=True)
 
-# ======= FOOTER =======
+# ===== FOOTER =====
 st.markdown("""
-<p style='text-align:center; color:purple; font-size:20px; margin-top:20px;'>
-Share this link with your friends & family and spread Eid happiness! 💖🌙✨
+<hr>
+<p style='text-align:center; color:white;'>
+Share this greeting link with your friends & family ❤️
 </p>
 """, unsafe_allow_html=True)
+
