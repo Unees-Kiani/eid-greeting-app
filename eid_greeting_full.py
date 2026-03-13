@@ -12,12 +12,17 @@ st.set_page_config(
 st.markdown("""
 <style>
 
+st.markdown("""
+<style>
 .stApp {
-background-image: url("https://images.unsplash.com/photo-1608889175119-3c8e3f9c6a4a");
+background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+url("https://images.unsplash.com/photo-1584551246679-0daf3d275d0f");
 background-size: cover;
 background-position: center;
+background-attachment: fixed;
 }
-
+</style>
+""", unsafe_allow_html=True)
 /* Moving Moon */
 .moon {
 position: absolute;
@@ -153,4 +158,5 @@ st.markdown("""
 Share this greeting link with your friends & family ❤️
 </p>
 """, unsafe_allow_html=True)
+
 
