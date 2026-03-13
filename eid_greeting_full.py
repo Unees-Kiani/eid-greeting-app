@@ -115,10 +115,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ===== NASHEED PLAYER =====
-st.markdown("<h4 style='text-align:center; color:white;'>Play Eid Nasheed 🎵</h4>", unsafe_allow_html=True)
+# ===== NASHEED PLAYER (VISIBLE TO USER) =====
+st.markdown("<h4 style='text-align:center; color:white;'>🎵 Click Play to Listen to Eid Nasheed</h4>", unsafe_allow_html=True)
 audio_url = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_8c7c4e5d8c.mp3"
-st.audio(audio_url)
+st.audio(audio_url)  # Always visible → user taps Play → works on mobile/desktop
 
 # ===== EID GIFT BUTTON =====
 st.write("")
