@@ -11,9 +11,6 @@ st.set_page_config(
 # ===== BACKGROUND + ANIMATIONS =====
 st.markdown("""
 <style>
-
-st.markdown("""
-<style>
 .stApp {
 background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
 url("https://images.unsplash.com/photo-1584551246679-0daf3d275d0f");
@@ -21,8 +18,7 @@ background-size: cover;
 background-position: center;
 background-attachment: fixed;
 }
-</style>
-""", unsafe_allow_html=True)
+
 /* Moving Moon */
 .moon {
 position: absolute;
@@ -59,10 +55,10 @@ color: white;
 font-size: 22px;
 margin-top: 20px;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
+# ===== MOVING MOON =====
 st.markdown('<div class="moon">🌙</div>', unsafe_allow_html=True)
 
 # ===== TITLE =====
@@ -93,11 +89,9 @@ unsafe_allow_html=True
 )
 
 counter = st.empty()
-
 for i in range(5,0,-1):
     counter.markdown(f"<h2 style='text-align:center; color:yellow;'>{i}</h2>", unsafe_allow_html=True)
     time.sleep(1)
-
 counter.empty()
 
 # ===== STEP-BY-STEP GREETING =====
@@ -123,7 +117,6 @@ st.markdown("""
 
 # ===== NASHEED PLAYER =====
 st.markdown("<h4 style='text-align:center; color:white;'>Play Eid Nasheed 🎵</h4>", unsafe_allow_html=True)
-
 audio_url = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_8c7c4e5d8c.mp3"
 st.audio(audio_url)
 
@@ -133,7 +126,6 @@ st.markdown("<h3 style='text-align:center; color:gold;'>🎁 Open Your Eid Gift<
 
 if st.button("Open Gift 🎁"):
     st.balloons()
-    
     st.markdown("""
     <div class="card">
     🌙✨ <b>Eid Mubarak!</b> ✨🌙 <br><br>
@@ -158,5 +150,3 @@ st.markdown("""
 Share this greeting link with your friends & family ❤️
 </p>
 """, unsafe_allow_html=True)
-
-
